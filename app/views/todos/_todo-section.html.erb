@@ -20,7 +20,7 @@
                                 <% end %>
                             <% else %>
                                 <input class="TodoItem-checkbox" type="checkbox" >
-                                <%= todo.todo_text %> 
+                                    <%= todo.todo_text %> 
                                 <% if show_due_date %>
                                     <p class=" TodoItem-duedate"> <%= todo.due_date.to_s(:short) %> </p>
                                 <% end %>
