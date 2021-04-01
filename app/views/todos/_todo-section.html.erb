@@ -1,0 +1,31 @@
+<section class="TodoSection" >
+            <div class="TodoSectionTitle">
+                <p class="TodoSectionTitle-text"> <%= section_title %> </p>
+                <p class="TodoSectionTitle-remainingcount"> <%= todos.completed.count %> / <%= todos.count %> </p>
+            </div>
+            <ul>
+                <% todos.each do|todo|  %>
+                    <li class="TodoItem">
+                        <label class="TodoItem-container"> 
+                            <% if todo.completed and show_completed %>
+                                <input class="TodoItem-checkbox" type="checkbox" checked>
+                                <p class="TodoItem-completed">  <%= todo.todo_text %> </p>
+                            <% else %>
+                                <input class="TodoItem-checkbox" type="checkbox" >
+                                <%= todo.todo_text %> 
+                            <% end %>
+                        <% if show_due_date %>
+                            <p class=" TodoItem-duedate"> <%= todo.due_date.to_s(:short) %> </p>
+                        <% end %>
+                        </label>
+
+                        <a class="TodoItem-delete" href="javascript:void(0)">
+                        <%= image_tag("trashcan")  %>
+
+                        </a>
+                    </li>
+                <% end %>
+            </ul>
+        </section>
+
+        

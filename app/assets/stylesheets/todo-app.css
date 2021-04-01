@@ -1,0 +1,121 @@
+body{
+    font-family:Sans-serif;
+    max-width:600px;
+    margin-top:32px;
+    margin-bottom:0;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.TodoPage-title{
+    font-size: 48px;
+    line-height: 1.6;
+    color: #453C52;
+}
+
+.AddTodo-text{
+    padding:6px;
+    margin:3px;
+    color: #453C52;
+    border-radius: 4px;
+    border: 1px solid #BFBBCC;
+}
+
+.AddTodo-date{
+    padding:5px;
+    margin:3px;
+    color: #453C52;
+    border-radius: 4px;
+    border: 1px solid #BFBBCC;
+}
+.TodoSectionTitle{
+   line-height: 1.4;
+    color: #453C52;
+    display: flex;
+    align-items: center;
+
+}
+.TodoSectionTitle-text{
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight:bold;
+    color: #453C52;
+}
+.TodoSectionTitle-remainingcount {
+    font-size: 15px;
+    color: #726A7E ;
+    margin-top: 20px;
+    margin-left: 10px;
+
+}
+
+
+.TodoItem{
+    line-height:1.2;
+    color: #453C52;
+    display:flex;
+    margin: 20px;
+}
+
+.TodoItem-container{
+    font-size:2opx;
+    margin-left:32px;
+}
+
+
+.TodoSection{
+    margin-left:32px;
+    padding:15px;
+}
+
+
+.AddTodo-text{
+    margin-left: 32px;
+    margin-top:32px;
+    border-radius: 4%;
+}
+
+
+.AddTodo-button{
+    background-color: #48BB78;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4%;
+    font=-size: 14px;
+}
+
+.AddTodo-date{
+    border-radius: 4%;
+}
+
+.TodoItem-duedate{
+    font-size: 12px;
+    color: #726A7E ;
+    margin-left: 10px;
+    margin-top:4px;
+    display: inline;
+    
+}
+
+.TodoItem:hover {
+  background-color: rgba(103,89,123,0.4);
+}
+
+.TodoItem-delete{
+    margin-left: 10px;
+    visibility: hidden;
+    width: 10px;
+    height: 10px;
+}
+
+.TodoItem:hover .TodoItem-delete{
+    visibility: visible;
+}
+
+.TodoItem-completed {
+    text-decoration: line-through;
+    display: inline-block;
+    margin:0;
+
+}
