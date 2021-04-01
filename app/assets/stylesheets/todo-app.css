@@ -60,6 +60,7 @@ body{
 .TodoItem-container{
     font-size:2opx;
     margin-left:32px;
+    display: flex;
 }
 
 
@@ -118,4 +119,7 @@ body{
     display: inline-block;
     margin:0;
 
+}
+.TodoItem-text{
+    margin:0
 }
