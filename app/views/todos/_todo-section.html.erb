@@ -7,23 +7,31 @@
                 <% todos.each do|todo|  %>
                     <li class="TodoItem">
                         <label class="TodoItem-container"> 
-                        <%= form_with(url: "/todos/#{todo.id}",method:"put") do %>
-                            <input 
-                                class="TodoItem-checkbox" 
-                                name="completed" 
-                                type="checkbox" 
-                                <%=todo.completed ? "checked" : "" %>
-                                onclick = "this.form.submit()"    
-                            >
-                        <% end %>
+                            <% if show_completed == false and todo.completed==true %>
+                            <% next 
+                                    end %>
+                            <%= form_with(url: "/todos/#{todo.id}",method:"put") do %>
+                                <input 
+                                    class="TodoItem-checkbox" 
+                                    name="completed" 
+                                    type="checkbox" 
+                                    <%=todo.completed ? "checked" : "" %>
+                                    onclick = "this.form.submit()"    
+                                >
+                            <% end %>
+                            
+                            <p class='<%= todo.completed ? "TodoItem-completed" : "TodoItem-text" %>' > 
+                            <%= todo.todo_text %> </p>
 
-                        <p class='<%= todo.completed ? "TodoItem-completed" : "TodoItem-text" %>' >  <%= todo.todo_text %> </p>
-                        <% if show_due_date %>
-                            <p class=" TodoItem-duedate"> <%= todo.due_date.to_s(:short) %> </p>
-                        <% end %>
-                        <a class="TodoItem-delete" href="javascript:void(0)">
-                            <%= image_tag("trashcan")  %>
-                        </a>
+                            <% if show_due_date %>
+                                <p class=" TodoItem-duedate"> <%= todo.due_date.to_s(:short) %> </p>
+                            <% end %>
+                            
+                            <a class="TodoItem-delete" href="javascript:void(0)">
+                                <%= form_with(url: "/todos/#{todo.id}", method:"delete") do %>
+                                    <input type="image" src='<%= image_url("trashcan.png") %>'>
+                                 <% end %>
+                            </a>
                         </label>
                     </li>
                 <% end %>
