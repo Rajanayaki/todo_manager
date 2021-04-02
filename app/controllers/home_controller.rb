@@ -7,4 +7,4 @@ class HomeController < ApplicationController
             render "index" 
         end
     end
-end
+end 
