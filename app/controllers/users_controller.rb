@@ -1,6 +1,10 @@
 require 'date'
 
 class UsersController < ApplicationController
+  def new
+    render "/users/new"
+  end
+
   def index
     render plain: User.all.map { |user| user.to_pleasant_string} .join("\n")
   end 
@@ -12,13 +16,15 @@ class UsersController < ApplicationController
   end
 
   def create 
-    name = params[:name]
-    email= params[:email]
-    password= params[:password]
-    user= User.new( name: name , email: email , password: password)
-    user.save
+    User.create!(
+      first_name:params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      password: params[:password]
+    )           
+    redirect_to "/"
   end 
-  
+       
   def login
     id=params[:id]
     user=User.find(id)
