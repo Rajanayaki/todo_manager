@@ -2,6 +2,7 @@ require 'date'
 
 class TodosController < ApplicationController
   def index
+    @todos = Todo.where(user_id: current_user.id)
     render "index"
   end 
   
@@ -14,16 +15,19 @@ class TodosController < ApplicationController
   def create 
     todo_text = params[:todo_text]
     due_date= DateTime.parse (params[:due_date])
-    todo= Todo.new( todo_text: todo_text, due_date: due_date , completed: false)
-    todo.save
-    response_text = "Todo is created with id #{todo.id}"
+    new_todo = Todo.create!(
+      todo_text: todo_text,
+      due_date: due_date,
+      completed:false ,
+      user_id: current_user.id
+    )
     redirect_to todos_path
   end
   
   def update
     id=params[:id]
     completed= params[:completed]
-    todo=Todo.find(id)
+    todo=Todo.where(user_id: current_user.id).find(id)
     todo.completed= completed
     todo.save
     redirect_to todos_path
@@ -31,7 +35,7 @@ class TodosController < ApplicationController
   
   def destroy
     id= params[:id]
-    todo = Todo.find(id)
+    todo = Todo.where(user_id: current_user.id).find(id)
     todo.destroy
     redirect_to todos_path
   end 

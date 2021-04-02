@@ -1,0 +1,16 @@
+.Home-title{
+    margin-bottom: 30px;
+}
+
+.Home-authenticate{
+    font-size: 20px;
+}
+
+.UserHeader{
+    padding:10px;
+    background-color: lightgrey;
+    margin-bottom:10px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+} 

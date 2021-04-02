@@ -1,7 +1,11 @@
 require 'date'
 class Todo < ActiveRecord::Base
   belongs_to :user
-  
+
+  def self.of_user(user)
+    all.where(user_id: user_id)
+  end
+
   def due_today?
     due_date == Date.today 
   end
